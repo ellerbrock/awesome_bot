@@ -68,7 +68,7 @@ module AwesomeBot
     def cli_process(filename, options)
       begin
         untrusted = File.read filename
-        content = untrusted.encode('UTF-16', :invalid => :replace, :replace => '').encode('UTF-8')
+        content = untrusted.encode('UTF-16', :invalid => :replace, :undef => :replace, :replace => '').encode('UTF-8')
       rescue => error
         puts "File open error: #{error}"
         return error
