@@ -10,7 +10,7 @@ module AwesomeBot
           if x.include? ')]'
             x.gsub /\)\].*/, ''
           elsif x.end_with? '))'
-            if x.scan('(').count == 1)
+            if x.scan('(').count == 1
               x.gsub(/\)\).*/, ')')
             else
               x.gsub(/\)\)/,'')
