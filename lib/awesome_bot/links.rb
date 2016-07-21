@@ -10,7 +10,11 @@ module AwesomeBot
           if x.include? ')]'
             x.gsub /\)\].*/, ''
           elsif x.end_with? '))'
-            x.gsub(/\)\)/,'')
+            if x.scan('(').count == 1)
+              x.gsub(/\)\).*/, ')')
+            else
+              x.gsub(/\)\)/,'')
+            end
           elsif x.include? '[' # adoc
             x.gsub(/\[.*/, '')
           elsif x[-1]=='.' || x[-1]==':'
